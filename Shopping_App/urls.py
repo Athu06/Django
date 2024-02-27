@@ -9,5 +9,4 @@ urlpatterns = [
     path('products/', ProductListCreateView.as_view(), name='product-list-create'),
     path('users/', UserListCreateView.as_view(), name='user-list-create'),
     path('recommendations/', RecommendationListCreateView.as_view(), name='recommendation-list-create'),
-    # ... Other URL patterns ...
 ]
