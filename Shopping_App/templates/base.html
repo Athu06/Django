@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website{% endblock %}</title>
+    <!-- Additional CSS or meta tags can be included here -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Your Website{% endblock %}</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'product_list' %}">Products</a></li>
+                <li><a href="{% url 'user_list' %}">Users</a></li>
+                <li><a href="{% url 'recommendation_view' %}">Recommendations</a></li>
+                <!-- Add more navigation links as needed -->
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'signout' %}">Sign Out</a></li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'signin' %}">Sign In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <!-- Additional scripts or JS files can be included here -->
+</body>
+</html>
